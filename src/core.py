@@ -257,10 +257,10 @@ def print_result(result: ResolveResult):
     
     # CDN Status
     if result.cdn_detected:
-        print(f"\n{Colors.YELLOW}⚠ CDN Detected: {result.cdn_detected.upper()}{Colors.RESET}")
+        print(f"\n{Colors.YELLOW}[!] CDN Detected: {result.cdn_detected.upper()}{Colors.RESET}")
         print(f"  CDN IPs: {', '.join(result.cdn_ips)}")
     else:
-        print(f"\n{Colors.GREEN}✓ No CDN detected{Colors.RESET}")
+        print(f"\n{Colors.GREEN}[OK] No CDN detected{Colors.RESET}")
     
     # Techniques used
     print(f"\n{Colors.BOLD}Discovery Techniques:{Colors.RESET}")
@@ -274,7 +274,7 @@ def print_result(result: ResolveResult):
     if result.real_ips:
         print(f"{Colors.GREEN}{Colors.BOLD}Potential Origin IPs:{Colors.RESET}")
         for ip in result.real_ips:
-            print(f"  {Colors.GREEN}→{Colors.RESET} {ip}")
+            print(f"  {Colors.GREEN}->{Colors.RESET} {ip}")
         print(f"\n{Colors.BOLD}Confidence:{Colors.RESET} {result.confidence.upper()}")
     else:
         print(f"{Colors.YELLOW}No origin IPs discovered{Colors.RESET}")
